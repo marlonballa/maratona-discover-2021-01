@@ -1,0 +1,278 @@
+/* GLOBAL ==================================================== */
+:root {
+    --dark-blue: #363F5F;
+    --green-button: #3dd705;
+    --green-button-hover: #49aa49;
+    --red-button-cancel: #e92929;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 0.9375rem;
+}
+
+body {
+    background: #f0f2f5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+.container {
+    width: min(90vw, 50rem);
+    margin: auto;
+}
+
+/* TITLES ==================================================== */
+h2 {
+    margin-top: 3.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--dark-blue);
+}
+
+/* LINKS & BUTTONS ==================================================== */
+a {
+    color: #49aa49;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--green-button);
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+button {
+    width: 100%;
+    height: 3.125rem;
+    border: none;
+    color: white;
+    background-color: var(--green-button);
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--green-button-hover);
+}
+
+.input-group.actions .button,
+.input-group.actions button {
+    width: 48%;
+}
+
+.button.cancel {
+    color: var(--red-button-cancel);
+    border: 2px var(--red-button-cancel) solid;
+    border-radius: 0.25rem;
+    height: 3.125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button.cancel:hover {
+    background-color: var(--red-button-cancel);
+    color: white;
+}
+
+
+/* HEADER ==================================================== */
+header {
+    background-color: #2d4a22;
+    padding: 2rem 0 10rem;
+    text-align: center;
+    font-weight: 400;
+}
+
+header h1#logo {
+    color: #fff;
+    font-weight: 100;
+}
+
+/* BALANCE ==================================================== */
+#balance {
+    margin-top: -8rem;
+}
+
+#balance h2 {
+    color: white;
+    margin-top: 0;
+}
+/* CARDS ==================================================== */
+
+.card {
+    background-color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 0.3rem;
+    margin-bottom: 2rem;
+}
+
+.card h3 {
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card p {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-top: 1rem;
+}
+
+.card.total {
+    background-color: #49AA26;
+    color: white;
+}
+
+/* TABLE ==================================================== */
+#transaction {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
+#data-table {
+    width: 100%;
+    border-spacing: 0 0.5rem;
+    color: #969CB3;
+}
+
+table thead th:first-child, 
+table tbody td:first-child {
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+table thead th:last-child, 
+table tbody td:last-child {
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+table thead th {
+    background: white;
+    font-weight: normal;
+    padding: 1rem 2rem;
+    text-align: left;
+}
+
+table tbody tr {
+    opacity: 0.75;
+}
+
+table tbody tr:hover {
+    opacity: 1;
+}
+
+table tbody td {
+    background: white;
+    padding: 1rem 2rem;
+}
+td.description {
+    color: var(--dark-blue);
+}
+
+td.income {
+    color: #12A45d;
+}
+
+td.expense {
+    color: #e92929;
+}
+
+/* MODAL ==================================================== */
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    position: fixed;
+    top:0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.modal {
+    background-color: #f0f2f5;
+    padding: 2.5rem;
+    position: relative;
+    max-width: 32rem;
+    width: 80%;
+    position: relative;
+}
+
+/* FORM ==================================================== */
+#form h2 {
+    margin-top: 0;
+}
+
+#form form input {
+    border: none;
+    border-radius: 0.25rem;
+
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.input-group {
+    margin-top: 0.75rem;
+}
+
+.input-group small {
+    opacity: 0.5;
+}
+
+.input-group.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* FOOOTER ==================================================== */
+footer {
+    text-align: center;
+    padding: 4rem 0 2rem;
+    color: var(--dark-blue);
+    opacity: 0.75;
+}
+
+/* RESPONSIVE ==================================================== */
+
+@media (min-width: 50rem) {
+    html {
+        font-size: 0.875rem;
+    }
+
+    #balance {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.5rem;
+    }
+}
