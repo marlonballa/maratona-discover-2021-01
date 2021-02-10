@@ -12,28 +12,18 @@ const Modal = {
     }
 }
 
-const transaction = [
-    {
-        description: 'Compra 01',
-        amount: 500014,
-        date:'28/01/2021', 
+const Storage = {
+    get() {
+        return JSON.parse(localStorage.getItem("dev.finance:transaction")) || []
     },
 
-    {
-        description:'Compra 01',
-        amount: -50010,
-        date:'28/01/2021' 
-    },
-
-    {
-        description:'Compra 01',
-        amount: 5000,
-        date:'28/01/2021'
+    set(transaction) {
+        localStorage.setItem("dev.finance:transaction", JSON.stringify(transaction))
     }
-]
+}
 
 const Transaction = {
-    all: transaction,
+    all: Storage.get(),
     add(transaction) {
         Transaction.all.push(transaction)
         App.reload()
@@ -95,7 +85,7 @@ const DOM = {
             ${transaction.date}
         </td>
         <td>
-            <img onclick="Transaction.remove.(${index})" src="assets/minus.svg" alt="Remover Transação">
+            <img onclick="Transaction.remove(${index})" src="assets/minus.svg" alt="Remover Transação">
         </td>
         `
 
@@ -200,11 +190,12 @@ const Form = {
     }
 }
 
-
 const App = {
     init() {
         Transaction.all.forEach(DOM.addTransaction)
         DOM.updateBalance()
+
+        Storage.set(Transaction.all)
     },
 
     reload() {
@@ -217,3 +208,25 @@ App.init()
 
 DOM.updateBalance()
 
+/*
+const transaction = [
+    {
+        description: 'Compra 01',
+        amount: 500014,
+        date:'28/01/2021', 
+    },
+
+    {
+        description:'Compra 01',
+        amount: -50010,
+        date:'28/01/2021' 
+    },
+
+    {
+        description:'Compra 01',
+        amount: 5000,
+        date:'28/01/2021'
+    }
+]
+
+*/
