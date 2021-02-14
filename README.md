@@ -1,1 +1,2 @@
 The Discover Marathon - organized by Rocketseat - took a lot of content, a developer spirit and the entire dev community to another leve:
+We developed the $ dev.finance application that deals with transactions, such as adding amounts that enter and leave your account, all calculated in real time and stored in the browser's local store.
